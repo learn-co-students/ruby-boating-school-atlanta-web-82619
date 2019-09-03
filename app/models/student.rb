@@ -23,6 +23,6 @@ class Student
     end
     
     def grade_percentage
-        self.tests.reduce(0) {|memo, test| test.test_status == 'passed' ? memo + 1 : memo} / tests.size.to_f
+        (self.tests.reduce(0) {|memo, test| test.test_status == 'passed' ? memo + 1 : memo} / tests.size.to_f) * 100
     end
 end
