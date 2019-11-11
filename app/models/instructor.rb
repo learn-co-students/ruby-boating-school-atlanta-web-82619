@@ -18,11 +18,8 @@ class Instructor
         matching_test = BoatingTest.all.find {|test| test.student == student && test.test_name == test_name}
         if matching_test 
             matching_test.test_status = "passed"
-            matching_test
         else
-            new_test = BoatingTest.new(student, test_name, test_status, self)
-            new_test.test_status = "passed"
-            new_test
+            BoatingTest.new(student, test_name, "passed", self)
         end
     end
 
@@ -30,11 +27,8 @@ class Instructor
         matching_test = BoatingTest.all.find {|test| test.student == student && test.test_name == test_name}
         if matching_test 
             matching_test.test_status = "failed"
-            matching_test
         else
-            new_test = BoatingTest.new(student, test_name, test_status, self)
-            new_test.test_status = "failed"
-            new_test
+            BoatingTest.new(student, test_name, "failed", self)
         end
     end
 end
